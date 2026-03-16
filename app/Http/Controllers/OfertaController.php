@@ -53,7 +53,7 @@ class OfertaController extends Controller
      */
     public function show(Oferta $oferta)
     {
-        //
+        return view('ofertas.show', compact('oferta'));
     }
 
     /**
@@ -77,6 +77,7 @@ class OfertaController extends Controller
      */
     public function destroy(Oferta $oferta)
     {
-        //
+        $oferta->delete();
+        return redirect()->route('ofertas.index');
     }
 }
