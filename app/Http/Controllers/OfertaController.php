@@ -21,7 +21,7 @@ class OfertaController extends Controller
      */
     public function create()
     {
-        //
+        return view('ofertas.create');
     }
 
     /**
@@ -29,7 +29,23 @@ class OfertaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'vigencia' => 'required',
+            'tienda' => 'required',
+            'precio_original' => 'required',
+            'precio_descuento' => 'required',
+        ]);
+
+        $oferta = new Oferta();
+        $oferta->titulo = $request->titulo;
+        $oferta->vigencia = $request->vigencia;
+        $oferta->tienda = $request->tienda;
+        $oferta->precio_original = $request->precio_original;
+        $oferta->precio_descuento = $request->precio_descuento;
+        $oferta->save();
+
+        return redirect()->route('ofertas.index');
     }
 
     /**
