@@ -61,7 +61,7 @@ class OfertaController extends Controller
      */
     public function edit(Oferta $oferta)
     {
-        //
+        return view('ofertas.edit', compact('oferta'));
     }
 
     /**
@@ -69,7 +69,8 @@ class OfertaController extends Controller
      */
     public function update(Request $request, Oferta $oferta)
     {
-        //
+        $oferta->update($request->all());
+        return redirect()->route('ofertas.index');
     }
 
     /**
