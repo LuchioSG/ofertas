@@ -14,8 +14,8 @@
 <td>{{ $oferta->titulo }}</td>
 <td>{{ $oferta->tienda }}</td>
 <td>
-<a href="{{ route('ofertas.show',$oferta->id) }}">Ver</a>
-<a href="{{ route('ofertas.edit',$oferta->id) }}">Editar</a>
+<a href="{{ route('ofertas.show',$oferta->id) }}">Ver</a><br>
+<a href="{{ route('ofertas.edit',$oferta->id) }}">Editar</a><br><br>
 
 <form action="{{ route('ofertas.destroy',$oferta->id) }}" method="POST">
 @csrf
